@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.addClass(); removeClass();</title>
+    <style>
+        .tab_menu{
+            font-size: 1.25rem; list-style: none;margin: 50px auto;
+            padding: 0; width: 500px; position: relative;
+        }
+        .tab_menu h2{margin: 0; position: absolute; top:0;}
+        .tab_menu h2 a{
+            display: block; background-color: lemonchiffon; width: 166px; margin-right: 1px; text-decoration: none; color: #000; font-size: 1.65rem; box-sizing: border-box; padding: 10px; border-radius: 20px 20px 0 0; text-align: center;
+        }
+        .tab_menu h2 a:hover,
+        .tab_menu li.on a
+        { background-color: lightblue;}
+        .tab_menu .tab1 h2{ left: 0;}
+        .tab_menu .tab2 h2{ left: 167px;}
+        .tab_menu .tab3 h2{ left: 334px;}
+        .tab_menu  p{
+            margin: 0; padding: 10px 20px; display: none;
+            position: absolute; width: 500px; top: 55px; box-sizing: border-box;
+        }
+        .tab_menu li.on p{
+            background-color: lightblue; display: block;
+        }
+       
+        .tab_menu p strong{display: block;}
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $('a[herf="#"]').click(function(e){
+                e.preventDefault();
+            });
+            $('.tab_menu h2').on('click',function(){
+                $('.tab_menu li').removeClass('on');//모든 li 클래스 on제거
+                $(this).parent().addClass('on');//내가 클릭한 h2의 부모인 li에만 적용
+
+            });
+        });
+    </script>
+</head>
+<body>
+    <ul class="tab_menu">
+        <li class="tab1">
+            <h2><a href="#">html5</a></h2>
+            <p>
+                <strong>html5</strong>
+                <span>html5</span>
+            </p>
+        </li>
+        <li class="tab2">
+            <h2><a href="#">css3</a></h2>
+            <p>
+                <strong>css3</strong>
+                <span>css3</span>
+            </p>
+        </li>
+        <li class="tab3">
+            <h2><a href="#">jQuery</a></h2>
+            <p>
+                <strong>jQuery</strong>
+                <span>jQuery</span>
+            </p>
+        </li>
+    </ul>
+</body>
+</html>
